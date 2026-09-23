@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HYFRESH-IT Department Software Hub</title>
+  <title>HYFRESH - IT Department Software Hub</title>
   <style>
     * {
       box-sizing: border-box;
@@ -14,10 +14,10 @@
       margin: 0;
       padding: 40px 20px;
       min-height: 100vh;
-      color: #1f2937;
+      color: #0f172a;
       
-      background-color: #4f46e5;
-      background-image: linear-gradient(135deg, rgba(30, 58, 138, 0.65), rgba(240, 249, 255, 0.65)), url('image/bg.png'); 
+      background-color: #1e3a8a;
+      background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(30, 58, 138, 0.65)), url('image/bg.png'); 
       background-size: cover;
       background-position: center;
       background-attachment: fixed; 
@@ -27,19 +27,27 @@
     .main-container {
       max-width: 1060px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.45); 
+      background: rgba(255, 255, 255, 0.75); 
       backdrop-filter: blur(20px); 
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.8);
       border-radius: 24px;
       padding: 36px;
-      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+    }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
     }
 
     h1 { 
       color: #0f172a; 
-      margin-top: 0;
-      margin-bottom: 6px;
+      margin: 0 0 6px 0;
       font-size: 28px;
       font-weight: 800;
       letter-spacing: -0.5px;
@@ -47,20 +55,34 @@
 
     p.subtitle { 
       color: #334155; 
-      margin-top: 0;
-      margin-bottom: 24px; 
+      margin: 0; 
       font-size: 15px;
       font-weight: 500;
     }
+
+    .result-badge {
+      background: rgba(37, 99, 235, 0.1);
+      color: #1d4ed8;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+    }
     
+    .search-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
     .search-box {
       width: 100%;
       padding: 14px 20px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      padding-right: 90px;
+      border: 1px solid rgba(15, 23, 42, 0.15);
       border-radius: 12px;
       font-size: 15px;
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -70,13 +92,28 @@
     }
 
     .search-box:focus {
-      background: rgba(255, 255, 255, 0.85);
+      background: #ffffff;
       border-color: #2563eb;
       box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
     }
 
     .search-box::placeholder {
       color: #64748b;
+    }
+
+    .kbd-shortcut {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #e2e8f0;
+      color: #475569;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      pointer-events: none;
+      border: 1px solid #cbd5e1;
     }
 
     .category-filters {
@@ -87,8 +124,8 @@
     }
 
     .filter-pill {
-      background: rgba(255, 255, 255, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(15, 23, 42, 0.12);
       padding: 8px 18px;
       border-radius: 20px;
       cursor: pointer;
@@ -101,7 +138,7 @@
     }
 
     .filter-pill:hover {
-      background: rgba(255, 255, 255, 0.8);
+      background: #ffffff;
       color: #0f172a;
       transform: translateY(-1px);
     }
@@ -121,12 +158,12 @@
     }
     
     .software-card {
-      background: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       padding: 22px;
       border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.9);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
       display: flex;
       flex-direction: column;
@@ -135,10 +172,10 @@
     }
 
     .software-card:hover {
-      transform: translateY(-5px); 
+      transform: translateY(-4px); 
       box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
-      background: rgba(255, 255, 255, 0.65);
-      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.9);
+      border-color: #ffffff;
     }
 
     .card-header {
@@ -152,9 +189,9 @@
       height: 48px;
       object-fit: contain;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.8);
+      background: #ffffff;
       padding: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       flex-shrink: 0;
     }
@@ -210,7 +247,7 @@
       transition: max-height 0.3s ease-out, opacity 0.3s ease-out, margin-top 0.3s ease-out;
       opacity: 0;
       font-size: 13px;
-      color: #334155;
+      color: #1e293b;
       line-height: 1.5;
       margin-top: 0;
     }
@@ -244,12 +281,12 @@
     }
 
     .no-results { 
-      color: #475569; 
+      color: #334155; 
       font-style: italic; 
       text-align: center; 
       grid-column: 1 / -1; 
       padding: 40px; 
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.5);
       border-radius: 12px;
       font-weight: 500;
     }
@@ -320,6 +357,11 @@
       font-size: 13.5px;
       text-decoration: none;
       display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .modal-btn-primary:hover {
+      background: #1d4ed8;
     }
 
     .modal-btn-secondary {
@@ -331,17 +373,30 @@
       font-size: 13.5px;
       border: none;
       cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .modal-btn-secondary:hover {
+      background: #e2e8f0;
     }
   </style>
 </head>
 <body>
 
   <div class="main-container">
-    <h1>IT Department Software Hub</h1>
-    <p class="subtitle">Search and download basic software needed for daily operations.</p>
+    <div class="header-row">
+      <div>
+        <h1>IT Department Software Hub</h1>
+        <p class="subtitle">Search and download official installers needed for daily operations.</p>
+      </div>
+      <div id="resultCount" class="result-badge">Showing 0 apps</div>
+    </div>
 
     <!-- Search Input -->
-    <input type="text" id="searchBar" class="search-box" placeholder="Search installers by name..." onkeyup="updateFilters()">
+    <div class="search-container">
+      <input type="text" id="searchBar" class="search-box" placeholder="Search installers by name or feature..." onkeyup="updateFilters()">
+      <span class="kbd-shortcut">Press /</span>
+    </div>
 
     <!-- Category Filter Container -->
     <div id="categoryContainer" class="category-filters"></div>
@@ -351,28 +406,18 @@
   </div>
 
   <!-- Download Pop-up Modal -->
-  <div id="downloadModal" class="modal-backdrop">
+  <div id="downloadModal" class="modal-backdrop" onclick="handleBackdropClick(event)">
     <div class="modal-card">
       <h2 id="modalTitle">Download Software</h2>
-      <p id="modalDesc">You are about to download this installer via Google Drive.</p>
+      <p id="modalDesc">You are about to download the installer .</p>
       <div class="modal-actions">
         <button class="modal-btn-secondary" onclick="closeModal()">Cancel</button>
-        <a id="modalConfirmBtn" class="modal-btn-primary" href="#" target="_blank" onclick="closeModal()">Proceed to Download</a>
+        <a id="modalConfirmBtn" class="modal-btn-primary" href="#" onclick="closeModal()">Proceed to Download</a>
       </div>
     </div>
   </div>
 
   <script>
-    function formatDownloadUrl(url) {
-      if (!url) return "#";
-      const gdriveRegex = /drive\.google\.com\/file\/d\/([^\/]+)/;
-      const match = url.match(gdriveRegex);
-      if (match && match[1]) {
-        return `https://drive.google.com/uc?export=download&id=${match[1]}`;
-      }
-      return url;
-    }
-
     const installers = [
       { 
         name: "Anydesk", 
@@ -380,7 +425,7 @@
         category: "Utilities", 
         description: "A fast remote desktop software application that lets you securely access and control a computer or mobile device from another location.",
         image: "image/anydesk.png", 
-        url: "https://drive.google.com/file/d/16Gg0f6Ne7qwanc8-Ficxphamo2uABAsh/view?usp=sharing"
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/Anydesk.Installer.rar"
       },
       { 
         name: "Chrome", 
@@ -388,7 +433,7 @@
         category: "Utilities", 
         description: "A free, fast, and secure cross-platform web browser developed by Google.",
         image: "image/chrome.png", 
-        url: "https://drive.google.com/file/d/1vxH-LN-0PxGOJzhwGWxj28nWqpXTWXi_/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/ChromeStandaloneSetup64.exe" 
       },
       { 
         name: "LogMeIn Hamachi", 
@@ -396,7 +441,7 @@
         category: "Utilities", 
         description: "Hosted virtual private network (VPN) service that lets you create secure virtual local area networks (LAN) over the internet.",
         image: "image/hamachi.png", 
-        url: "https://drive.google.com/file/d/1Axvt2qRqLcCskQuAFuQx-YvF9Yvkx-16/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/Hamachi.rar" 
       },
       { 
         name: "Office 2013 32-bit", 
@@ -404,7 +449,7 @@
         category: "Utilities", 
         description: "A collection of software applications designed to help people create documents, spreadsheets, presentations, and manage emails.",
         image: "image/office.png", 
-        url: "https://drive.google.com/file/d/1_rLREEwHFGkdRwrzHITrk73Vhl6kF-Jt/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/OFFICE.2013.32BIT.rar" 
       },
       { 
         name: "Office 2013 64-bit", 
@@ -412,7 +457,7 @@
         category: "Utilities", 
         description: "A collection of software applications designed to help people create documents, spreadsheets, presentations, and manage emails.",
         image: "image/office.png", 
-        url: "https://drive.google.com/file/d/1q6qFzrirevlkxb2hn3ulGazIzJWsnHTS/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/OFFICE.2013.64BIT.rar" 
       },
       { 
         name: "WinRAR", 
@@ -420,7 +465,7 @@
         category: "Utilities", 
         description: "A trialware file archiver utility for Windows.",
         image: "image/winrar.png", 
-        url: "https://drive.google.com/file/d/1ZwKxFRDhc3H-_helHXjUUmcMDxz_0XLz/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/Winrar.rar" 
       },
       { 
         name: "WPS Office 2020 Multilingual", 
@@ -428,7 +473,7 @@
         category: "Utilities", 
         description: "A free, all-in-one office suite used to create, edit, and manage documents, spreadsheets, presentations, and PDF files.",
         image: "image/wps.png", 
-        url: "https://drive.google.com/file/d/17j4whQyBzSIRwPz-dOaWAbEFRK9EJwEC/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/WPS.Office.Multilingual.rar" 
       },
       { 
         name: "AutoCount Acc", 
@@ -436,7 +481,7 @@
         category: "Software", 
         description: "A leading business management and accounting software solution designed primarily for small and medium enterprises. Password: hyfresh@8011",
         image: "image/autocount.png", 
-        url: "https://drive.google.com/file/d/1DgQOKv4iILl5JZME3CxkW1MJ653tizoi/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/AssignmentATC.rar" 
       },
       { 
         name: "Asoft ERP 32-bit", 
@@ -444,7 +489,7 @@
         category: "Software", 
         description: "Enterprise resource planning and accounting software solution. (regsvr32 = C:\\windows\\system32\\midas.dll)",
         image: "image/asoft.png", 
-        url: "https://drive.google.com/file/d/1FAFuG4I6B7eNouTVVd5VUeS52MmjVxCF/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/Firebird-2.5.3.26778_0_Win32.exe" 
       },
       { 
         name: "Asoft ERP 64-bit", 
@@ -452,7 +497,7 @@
         category: "Software", 
         description: "Enterprise resource planning and accounting software solution. (regsvr32 = C:\\windows\\syswow64\\midas.dll)",
         image: "image/asoft.png", 
-        url: "https://drive.google.com/file/d/16wY0ngqFIN3D26oYd20Nt2ZwTQcOX6Jf/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/Firebird-2.5.3.26778_0_x64.exe" 
       },
       { 
         name: "CANON LBP6030 NOV21", 
@@ -460,7 +505,7 @@
         category: "Driver", 
         description: "CANON printer driver.",
         image: "image/canon.png",
-        url: "https://drive.google.com/file/d/14CumJ0d7N-1dtzMeTjOrO6pj-6Ai-LVK/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/Canon.LBP6030.nov.21.rar" 
       },
       { 
         name: "CANON LBP6030 V2110 32-bit", 
@@ -468,7 +513,7 @@
         category: "Driver", 
         description: "CANON printer driver.",
         image: "image/canon.png",
-        url: "https://drive.google.com/file/d/11SKUMjReBojLtx4FpgeqAGuIiqISvZIB/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/canon.LBP6030_V2110_W32_uk_EN_1.rar" 
       },
       { 
         name: "CANON LBP6030 V2111 64-bit", 
@@ -476,7 +521,7 @@
         category: "Driver", 
         description: "CANON printer driver.",
         image: "image/canon.png",
-        url: "https://drive.google.com/file/d/1Gq46uZfiXPsw_GLUV6n6fBwTBIPmH28J/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/canon.LBP6030_V2111_W64_EN.rar" 
       },
       { 
         name: "EPSON L360 x64", 
@@ -484,7 +529,7 @@
         category: "Driver", 
         description: "EPSON printer driver.",
         image: "image/epson.png",
-        url: "https://drive.google.com/file/d/1i0IyKD2YDH3SaY7L2KB97hxMU6unA4H0/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/epson.L360_x64_222JAUsHomeExportAsiaML.rar" 
       },
       { 
         name: "EPSON L360 x86", 
@@ -492,7 +537,7 @@
         category: "Driver", 
         description: "EPSON printer driver.",
         image: "image/epson.png",
-        url: "https://drive.google.com/file/d/1BXfyhVVN9iiXQtV2LUIWYGeJoAIgs-WT/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/epson.L360_x86_222JAUsHomeExportAsiaML.rar" 
       },
       { 
         name: "EPSON L3250 x64", 
@@ -500,7 +545,7 @@
         category: "Driver", 
         description: "EPSON printer driver.",
         image: "image/epson2.png",
-        url: "https://drive.google.com/file/d/1QBEdOC1HN-uy_UmHPQBPE4FFk6M_M2ad/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/Epson.L3250_x64_301JAUsHomeExportAsiaML.rar" 
       },
       { 
         name: "EPSON LQ-310", 
@@ -508,7 +553,7 @@
         category: "Driver", 
         description: "EPSON printer driver.",
         image: "image/epson3.png",
-        url: "https://drive.google.com/file/d/1xBOoPpQfaSctsS112R4IqsiuCf--cMUY/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/epson.LQ-310_EN_Vol10.rar" 
       },
       { 
         name: "EPSON L3210 W64", 
@@ -516,7 +561,7 @@
         category: "Driver", 
         description: "EPSON printer driver.",
         image: "image/epson4.png",
-        url: "https://drive.google.com/file/d/1D5K_clqg7ugDOUrXtQkSROay73zHn97G/view?usp=sharing" 
+        url: "https://github.com/irfanamri2000-ship-it/hyfresh-software-hub/releases/download/installer/L3210_STD_WW_38005_W64.exe" 
       }
     ];
 
@@ -549,6 +594,9 @@
         return matchesSearch && matchesCategory;
       });
       
+      // Update result counter
+      document.getElementById('resultCount').textContent = `Showing ${filtered.length} of ${installers.length} apps`;
+      
       renderGrid(filtered);
     }
 
@@ -567,12 +615,18 @@
 
     function openModal(name, url) {
       document.getElementById('modalTitle').textContent = `Download ${name}`;
-      document.getElementById('modalConfirmBtn').href = formatDownloadUrl(url);
+      document.getElementById('modalConfirmBtn').href = url;
       document.getElementById('downloadModal').classList.add('active');
     }
 
     function closeModal() {
       document.getElementById('downloadModal').classList.remove('active');
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'downloadModal') {
+        closeModal();
+      }
     }
 
     function renderGrid(items) {
@@ -603,14 +657,44 @@
             </button>
             <div class="description">${item.description}</div>
           </div>
-          <button class="download-btn" onclick="openModal('${item.name.replace(/'/g, "\\'")}', '${item.url}')">Get Installer</button>
+          <button class="download-btn">Get Installer</button>
         `;
+
+        // Safe event listener binding to prevent string escaping issues
+        card.querySelector('.download-btn').addEventListener('click', () => {
+          openModal(item.name, item.url);
+        });
+
         container.appendChild(card);
       });
     }
 
+    // Keyboard Shortcuts Navigation
+    document.addEventListener('keydown', (e) => {
+      const searchInput = document.getElementById('searchBar');
+      
+      // Press '/' to focus search bar
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+
+      // Press 'Escape' to clear search or close modal
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('downloadModal');
+        if (modal.classList.contains('active')) {
+          closeModal();
+        } else if (searchInput.value !== '') {
+          searchInput.value = '';
+          updateFilters();
+          searchInput.blur();
+        }
+      }
+    });
+
+    // Initialize App
     renderCategoryButtons();
-    renderGrid(installers);
+    updateFilters();
   </script>
 
 </body>
